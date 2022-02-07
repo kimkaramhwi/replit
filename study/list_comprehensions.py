@@ -3,7 +3,7 @@
 cities = ["Tokyo","Shanghai","Jakarta","Seoul","Guangzhou","Beijing","Karachi","Shenzhen","Delhi"]
 
 def list_comprehension():
-    city_list = [city for city in cities if (city.startswith("S") != 1)]
+    city_list = [city for city in cities if (city[0] != "S")] # (city.startswith("S") != 1)
     print(city_list)
 
 list_comprehension()
@@ -17,3 +17,6 @@ def list_comprehension2():
     print(population_of_city_list)
 
 list_comprehension2()
+
+list_comprehension = [element for element in range(1,11) if (element % 2) == 1]
+print(list_comprehension) # [1,3,5,7,9]

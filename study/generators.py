@@ -29,22 +29,69 @@ L = [1,2,3]
 
 # print_iter(generate_square_from_list())
 
-from ast import comprehension
+
+# import time
+
+# def print_iter(iter):
+#     for element in iter:
+#         print(element)
+
+# def lazy_return(num):
+#     print("sleep 1s")
+#     time.sleep(1)
+#     return num
+
+# print("comprehension_list=")
+# comprehension_list = [lazy_return(i) for i in L]
+# print_iter(comprehension_list)
+
+# print("generator_exp=")
+# generator_exp = (lazy_return(i) for i in L)
+# print_iter(generator_exp)
+
+# import time
+# import random
+
+# counter = random.randrange(1, 11)  # 1부터 10사이의 랜덤 값 생성
+# print("counter: {}".format(counter))
+
+# def return_one_after_five_sec():
+#     print("please wait for 5 seconds")
+#     time.sleep(1)
+#     print("return 1")
+#     return 1
+
+# print("[let's make one_list !]")
+# one_list = [return_one_after_five_sec() for x in range(10)]
+
+# # counter 숫자만큼 값 출력
+# print("[let's print one_list !]")
+# for item in one_list:
+#     counter -= 1
+#     print(item)
+#     if counter == 0:
+#         break
+
+
 import time
+import random
 
-def print_iter(iter):
-    for element in iter:
-        print(element)
+counter = random.randrange(1, 11)  # 1부터 10사이의 랜덤 값 생성
+print("counter: {}".format(counter))
 
-def lazy_return(num):
-    print("sleep 1s")
-    time.sleep(1)
-    return num
+def return_one_after_five_sec():
+    print("please wait for 5 seconds")
+    time.sleep(5)
+    print("return 1")
+    return 1
 
-print("comprehension_list=")
-comprehension_list = [lazy_return(i) for i in L]
-print_iter(comprehension_list)
+print("[let's make one_generator !]")
+one_generator = (return_one_after_five_sec() for x in range(10))  # generator 생성
 
-print("generator_exp=")
-generator_exp = (lazy_return(i) for i in L)
-print_iter(generator_exp)
+# counter 숫자만큼 값 출력
+print("[let's print one_generator !]")
+for item in one_generator:
+    counter -= 1
+    print(item)
+    if counter == 0:
+        break
